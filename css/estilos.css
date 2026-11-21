@@ -1827,3 +1827,96 @@ select {
     white-space: nowrap;
   }
 }
+
+/* ---------- Celular y pantallas táctiles (Hades, 21-11-2026) ----------
+   Todo lo que se toca mide al menos 44 px de alto; en el celular, la acción de la portada es un botón, la autorización de
+   datos (Ley 1581) va antes de «Enviar», la etiqueta de maqueta se ve y el mapa no pide «pase el cursor». */
+@media (max-width: 640px), (pointer: coarse) {
+  .boton,
+  .boton-linea,
+  .cotizador-enviar {
+    min-height: 48px;
+  }
+  .boton-linea {
+    justify-content: center;
+  }
+  .pastilla,
+  .marca,
+  .campo input,
+  .campo select {
+    min-height: 44px;
+  }
+  .permiso input {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+  }
+  .portada-arriba a,
+  .ficha-pie a,
+  .asesora-contacto a,
+  .notas a,
+  .pie-columnas a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .pie-columnas ul {
+    gap: 0;
+  }
+  .pie-columnas li {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .joya-punto {
+    position: relative;
+  }
+  .joya-punto::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+  }
+}
+@media (hover: none) {
+  .solo-cursor {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .portada-arriba a {
+    padding: 0 22px;
+    border-radius: 999px;
+    background: var(--verde);
+    color: var(--noche);
+    font-weight: 600;
+  }
+  .cotizador-formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  .cotizador {
+    display: contents;
+  }
+  .cotizador .campo {
+    border: 1px solid var(--hilo-noche);
+    border-top: 0;
+  }
+  .cotizador .campo:first-child {
+    border-top: 1px solid var(--hilo-noche);
+  }
+  .permiso {
+    order: 1;
+    margin: 16px 0;
+  }
+  .cotizador-enviar {
+    order: 2;
+  }
+  .aviso-cotizador {
+    order: 3;
+  }
+  .propuesta {
+    display: block;
+    bottom: 14px;
+  }
+}
